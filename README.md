@@ -33,7 +33,7 @@
 
 ## About
  
-This application permite to manage the registration and the ranking of an official Time Trial under excel.
+This application permit to manage the registration and the ranking of an official Time Trial under excel.
 
 ## Prerequisites
 
