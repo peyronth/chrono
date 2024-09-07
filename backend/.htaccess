@@ -1,3 +1,0 @@
-<FilesMatch "config.php|Database.php|Utils.php">
-    Require all denied
-</FilesMatch>
