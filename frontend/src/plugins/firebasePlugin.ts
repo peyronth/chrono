@@ -1,4 +1,5 @@
 import { initializeApp, FirebaseApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getAnalytics, Analytics } from "firebase/analytics";
 import { getFirestore, Firestore } from "firebase/firestore";
 import { App } from 'vue';
@@ -18,14 +19,20 @@ const firebaseConfig = {
 const firebaseApp: FirebaseApp = initializeApp(firebaseConfig);
 const analytics: Analytics = getAnalytics(firebaseApp);
 const db: Firestore = getFirestore(firebaseApp);
+const auth = getAuth(firebaseApp);
+const provider = new GoogleAuthProvider();
 
 export default {
   install: (vueApp: App) => {
     vueApp.provide('firebase', firebaseApp);
     vueApp.provide('analytics', analytics);
     vueApp.provide('db', db);
+    vueApp.provide('auth', auth);
+    vueApp.provide('provider', provider);
     vueApp.config.globalProperties.$firebase = firebaseApp;
     vueApp.config.globalProperties.$analytics = analytics;
     vueApp.config.globalProperties.$db = db;
+    vueApp.config.globalProperties.$auth = auth;
+    vueApp.config.globalProperties.$provider = provider;
   }
 };
